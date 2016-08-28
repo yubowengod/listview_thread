@@ -38,8 +38,7 @@ public class webserviceutil {
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
                     SoapEnvelope.VER11);
             // 实例化SoapObject对象
-            SoapObject soapObject = new SoapObject(SERVICE_NAMESPACE,
-                    methodName);
+            SoapObject soapObject = new SoapObject(SERVICE_NAMESPACE,methodName);
             envelope.bodyOut = soapObject;
             // 设置与.NET提供的webservice保持较好的兼容性
             envelope.dotNet = true;
@@ -49,8 +48,7 @@ public class webserviceutil {
             if (envelope.getResponse() != null) {
                 // 获取服务器响应返回的SOAP消息
                 SoapObject result = (SoapObject) envelope.bodyIn;
-                SoapObject detail = (SoapObject) result.getProperty(methodName
-                        + "Result");
+                SoapObject detail = (SoapObject) result.getProperty(methodName + "Result");
                 // 解析服务器响应的SOAP消息
                 return parseProvinceOrCity(detail);
             }

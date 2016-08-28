@@ -10,7 +10,8 @@ import android.widget.ImageView;
         import android.widget.AdapterView;
         import android.widget.AdapterView.OnItemSelectedListener;
         import android.widget.ImageView;
-        import android.widget.Spinner;
+import android.widget.ListView;
+import android.widget.Spinner;
         import android.widget.TextView;
         import android.app.Activity;
 
@@ -20,6 +21,7 @@ public class MainActivity extends Activity {
     public TextView txt_today, txt_tomorrow, txt_afterday, txt_current;
     public ImageView img_today1, img_today2, img_tomorrow1, img_tomorrow2,
             img_afterday1, img_afterday2;
+    private ListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
