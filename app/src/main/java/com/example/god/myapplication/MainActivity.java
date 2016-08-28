@@ -29,48 +29,14 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         initControls();
 
-        ProvinceAsyncTask task = new ProvinceAsyncTask(this, sp_province);
+        ProvinceAsyncTask task = new ProvinceAsyncTask(this, sp_province,listview);
         task.execute();
-//        sp_province.setOnItemSelectedListener(new OnItemSelectedListener() {
-//
-//            @Override
-//            public void onItemSelected(AdapterView<?> source, View parent,
-//                                       int position, long id) {
-//                // TODO Auto-generated method stub
-//                CityAsyncTask task = new CityAsyncTask(MainActivity.this,
-//                        sp_city, sp_province);
-//                task.execute();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> arg0) {
-//                // TODO Auto-generated method stub
-//
-//            }
-//        });
-//
-//        sp_city.setOnItemSelectedListener(new OnItemSelectedListener() {
-//
-//            @Override
-//            public void onItemSelected(AdapterView<?> source, View parent,
-//                                       int position, long id) {
-//                // TODO Auto-generated method stub
-//                String city = sp_city.getSelectedItem().toString();
-//                WeatherAsyncTask task = new WeatherAsyncTask(MainActivity.this,
-//                        city, detail);
-//                task.execute();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> arg0) {
-//                // TODO Auto-generated method stub
-//
-//            }
-//        });
+
 
     }
 
     private void initControls() {
+        listview = (ListView) findViewById(R.id.listview);
         sp_province = (Spinner) findViewById(R.id.sp_province);
         sp_city = (Spinner) findViewById(R.id.sp_city);
         txt_today = (TextView) findViewById(R.id.weatherToday);
