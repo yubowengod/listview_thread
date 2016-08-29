@@ -100,6 +100,7 @@ public class MainActivity extends Activity {
 
 
 
+    public ProvinceThread_spinner myThread_spinner;
     public ProvinceThread myThread;
     public Handler handler;
     public List<String> result;
@@ -134,6 +135,12 @@ public class MainActivity extends Activity {
                     listview.setAdapter(new ListAdapter(MainActivity.this,result));
 
                 }
+                if(msg.what==0x1234){    //更新UI或其他操作
+                    result=myThread_spinner.getList_result();//有值
+
+                    sp_province.setAdapter(new ListAdapter(MainActivity.this,result));
+
+                }
             }
         };
         myThread=new ProvinceThread("selectAllCargoInfor",handler);
@@ -141,6 +148,12 @@ public class MainActivity extends Activity {
 //        myThread.setListView(listview);
 //        myThread.setUserID("");
         myThread.start();
+        myThread_spinner=new ProvinceThread_spinner("selectAllCargoInfor",handler);
+
+//        myThread.setListView(listview);
+//        myThread.setUserID("");
+        myThread_spinner.start();
+
     }
 
 }
