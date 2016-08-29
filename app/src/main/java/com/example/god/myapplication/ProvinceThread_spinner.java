@@ -93,7 +93,7 @@ public class ProvinceThread_spinner extends Thread{
 
     public List<String> parseProvinceOrCity(SoapObject detail) {
         ArrayList<String> result = new ArrayList<String>();
-        for (int i = 0; i < detail.getPropertyCount(); i++) {
+        for (int i = 1; i < detail.getPropertyCount(); i=i+3) {
             // 解析出每个省份
             result.add(detail.getProperty(i).toString().split(",")[0]);
         }
