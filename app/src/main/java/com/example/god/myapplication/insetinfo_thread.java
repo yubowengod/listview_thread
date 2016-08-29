@@ -27,7 +27,7 @@ public class insetinfo_thread extends Thread{
     private ListView listView;
     private MainActivity activity;
     List<String> List_result;
-    Boolean insetinfo_result;
+    String insetinfo_result;
 
 
     private Handler handler; //设置消息，通知主线程进行相关操作
@@ -76,10 +76,9 @@ public class insetinfo_thread extends Thread{
             if (envelope.getResponse() != null) {
                 // 获取服务器响应返回的SOAP消息
                 SoapObject result = (SoapObject) envelope.bodyIn;
-//                SoapObject detail = (SoapObject) result.getProperty(methodName + "Result");
-
-                // 解析服务器响应的SOAP消息
-//                insetinfo_result=parseProvinceOrCity(detail);
+                String resuly_back ;
+                resuly_back = result.getProperty(0).toString();//true
+                insetinfo_result= resuly_back;
             }
         } catch (SoapFault e) {
             // TODO Auto-generated catch block
@@ -104,19 +103,14 @@ public class insetinfo_thread extends Thread{
         handler.sendMessage(msg);
     }
 
-    public Boolean parseProvinceOrCity(SoapObject detail) {
-//        ArrayList<String> result = new ArrayList<String>();
-//        for (int i = 0; i < detail.getPropertyCount(); i++) {
-//            // 解析出每个省份
-//            result.add(detail.getProperty(i).toString().split(",")[0]);
-//        }
-        Boolean result=true;
+    public String parseProvinceOrCity(String resuly_back) {
+//
+        String result_array[]=resuly_back.split(":");
+        return result_array[1];
 
-
-        return result;
     }
 
-    public Boolean getList_result(){
+    public String getList_result(){
 
         return insetinfo_result;
     }

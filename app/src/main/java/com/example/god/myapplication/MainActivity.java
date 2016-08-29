@@ -76,29 +76,6 @@ public class MainActivity extends Activity {
     }
 
 
-    public Handler mHandler=new Handler()
-    {
-        public void handleMessage(Message msg)
-        {
-            switch(msg.what)
-            {
-                case 1:
-                    int i=0;
-                    Log.e("ok1", " is saled by "+i++);
-                    break;
-                case 2:
-                    Log.e("ok1", "2");
-                    break;
-                case 3:
-                    Log.e("ok1", "3");
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
-
-
 
     public insetinfo_thread myThread_insetinfo;
     public ProvinceThread_spinner myThread_spinner;
@@ -106,7 +83,7 @@ public class MainActivity extends Activity {
     public Handler handler;
     public Handler handler1;
     public List<String> result;
-    public Boolean result_insetinfo;
+    public String result_insetinfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +107,9 @@ public class MainActivity extends Activity {
                     public void handleMessage(Message msg) {
 
                         if(msg.what==0x12345){    //更新UI或其他操作
-                            txt_test.setText("889");
+
+                            result_insetinfo=myThread_insetinfo.getList_result();
+                            txt_test.setText(result_insetinfo);
                         }
                     }
                 };
