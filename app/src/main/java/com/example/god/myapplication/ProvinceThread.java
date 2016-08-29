@@ -23,7 +23,7 @@ import java.util.List;
 public class ProvinceThread extends Thread{
 
     public String SERVICE_NAMESPACE = "http://tempuri.org/";
-    public String SERVICE_URL = "http://10.148.82.102:8011/Service1.asmx";
+//    public String SERVICE_URL = "http://10.148.82.102:8011/Service1.asmx";
     private String methodName = "selectAllCargoInfor";   //设置方法名
     private SoapObject result;
     private ListView listView;
@@ -49,7 +49,7 @@ public class ProvinceThread extends Thread{
         // 调用 的方法
         String methodName = "selectAllCargoInfor";
         // 创建HttpTransportSE传输对象
-        HttpTransportSE ht = new HttpTransportSE(SERVICE_URL);
+        HttpTransportSE ht = new HttpTransportSE(Data.getSERVICE_URL());
         try {
             ht.debug = true;
             // 使用SOAP1.1协议创建Envelop对象
