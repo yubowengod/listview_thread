@@ -100,10 +100,13 @@ public class MainActivity extends Activity {
 
 
 
+    public insetinfo_thread myThread_insetinfo;
     public ProvinceThread_spinner myThread_spinner;
     public ProvinceThread myThread;
     public Handler handler;
+    public Handler handler1;
     public List<String> result;
+    public Boolean result_insetinfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,14 +121,30 @@ public class MainActivity extends Activity {
 //        task.execute();
 
 
+        btn_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                handler1=new Handler(){
+                    @Override
+                    public void handleMessage(Message msg) {
 
-
-
+                        if(msg.what==0x12345){    //更新UI或其他操作
+                            txt_test.setText("889");
+                        }
+                    }
+                };
+                myThread_insetinfo=new insetinfo_thread("insertCargoInfo",handler1);
+                myThread_insetinfo.setCname(edit_test.getText().toString());
+                myThread_insetinfo.setCnum(edit_test1.getText().toString());
+                myThread_insetinfo.start();
+            }
+        });
 
     }
 
     private void getInfo(){
+
         handler=new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -143,16 +162,15 @@ public class MainActivity extends Activity {
                 }
             }
         };
+
         myThread=new ProvinceThread("selectAllCargoInfor",handler);
-
-//        myThread.setListView(listview);
-//        myThread.setUserID("");
         myThread.start();
-        myThread_spinner=new ProvinceThread_spinner("selectAllCargoInfor",handler);
 
-//        myThread.setListView(listview);
-//        myThread.setUserID("");
+        myThread_spinner=new ProvinceThread_spinner("selectAllCargoInfor",handler);
         myThread_spinner.start();
+
+
+
 
     }
 
