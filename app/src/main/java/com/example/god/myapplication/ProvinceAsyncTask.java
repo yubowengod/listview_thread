@@ -33,7 +33,5 @@ public class ProvinceAsyncTask extends AsyncTask<String, String, List<String>> {
         ListAdapter adapter = new ListAdapter(activity, provinces);
         sp_province.setAdapter(adapter);
         listView.setAdapter(adapter);
-
-
     }
 }
