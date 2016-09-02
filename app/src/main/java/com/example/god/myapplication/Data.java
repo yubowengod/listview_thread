@@ -6,7 +6,8 @@ package com.example.god.myapplication;
 public class Data {
 //    private static String a ="feiyangxiaomi";
 
-    private static String SERVICE_URL = "http://10.148.83.238:8011/Service1.asmx";
+    private static String SERVICE_URL = "http://10.148.82.93:8012/Service1.asmx";
+
     public static String getSERVICE_URL() {
         return SERVICE_URL;
     }

@@ -85,7 +85,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_test"/>
+            android:id="@+id/btn_test"
+            android:text="insert"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_upload"
+            android:text="upload"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

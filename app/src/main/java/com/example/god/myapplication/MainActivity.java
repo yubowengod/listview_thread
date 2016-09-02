@@ -1,5 +1,6 @@
 package com.example.god.myapplication;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
@@ -28,7 +29,11 @@ import android.widget.Spinner;
         import android.app.Activity;
 import android.widget.Toast;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,6 +95,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+
+//        /data/data/com.example.god.myapplication
         initControls();
         getInfo();
 
